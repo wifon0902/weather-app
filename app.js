@@ -23,6 +23,6 @@ function dataFetching(API_URL) {
         weather: weatherRaw.weather[0].main,
         weatherDesc: weatherRaw.weather[0].description,
       };
-      console.log(weatherRaw);
+      console.log(city);
     });
 }
