@@ -20,8 +20,8 @@ function dataFetching(API_URL) {
         humidity: weatherRaw.main.humidity,
         sunrise: weatherRaw.sys.sunrise,
         sunshine: weatherRaw.sys.sunset,
-        weather: weatherRaw.weather.main,
-        weatherDesc: weatherRaw.weather.description,
+        weather: weatherRaw.weather[0].main,
+        weatherDesc: weatherRaw.weather[0].description,
       };
       console.log(weatherRaw);
     });
