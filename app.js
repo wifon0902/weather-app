@@ -32,17 +32,23 @@ function dataFetching(API_URL) {
         weatherDesc: weatherRaw.weather[0].description,
       };
       exportData(city);
-      console.log(weatherRaw);
     });
 }
 
 function exportData(city) {
   cityName.innerText = city.name;
   country.innerText = regionNames.of(city.country);
-  temp.innerText = city.temp;
+  temp.innerText = Math.round(city.temp);
   humidity.innerText = city.humidity;
   weather.innerText = city.weather;
   weatherDesc.innerText = city.weatherDesc;
 
   console.log(city);
+  createIcon();
+}
+
+function createIcon() {
+  let icon = document.createElement("img");
+  icon.src = "icons/cloud.svg";
+  weather.appendChild(icon);
 }
