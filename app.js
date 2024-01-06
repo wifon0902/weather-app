@@ -8,6 +8,7 @@ const country = document.querySelector("#country");
 const cityName = document.querySelector("#city");
 const temp = document.querySelector("#temp");
 const humidity = document.querySelector("#humidity");
+const windSpeed = document.querySelector("#wind-speed");
 const weather = document.querySelector("#weather");
 const weatherDesc = document.querySelector("#weather-desc");
 const sunrise = document.querySelector("#sunrise");
@@ -28,12 +29,14 @@ function dataFetching(API_URL) {
         country: weatherRaw.sys.country,
         temp: weatherRaw.main.temp,
         humidity: weatherRaw.main.humidity,
+        windSpeed: weatherRaw.wind.speed,
         sunrise: weatherRaw.sys.sunrise,
         sunset: weatherRaw.sys.sunset,
         weather: weatherRaw.weather[0].main,
         weatherDesc: weatherRaw.weather[0].description,
       };
       exportData(city);
+      console.log(weatherRaw);
     });
 }
 
@@ -42,6 +45,8 @@ function exportData(city) {
   country.innerText = regionNames.of(city.country);
   temp.innerText = Math.round(city.temp);
   humidity.innerText = city.humidity;
+  let windSpeedConversion = (city.windSpeed / 1000) * 3600;
+  windSpeed.innerText = Math.round(windSpeedConversion);
   weather.innerText = city.weather;
   weatherDesc.innerText = city.weatherDesc;
   sunrise.innerText = unixTimestamp(city.sunrise);
