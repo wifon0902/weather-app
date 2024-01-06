@@ -4,12 +4,14 @@ import { regionNames } from "./region.js";
 const API_KEY = config.API_KEY;
 const button = document.querySelector("#check-button");
 
-const cityName = document.querySelector("#city");
 const country = document.querySelector("#country");
+const cityName = document.querySelector("#city");
 const temp = document.querySelector("#temp");
 const humidity = document.querySelector("#humidity");
 const weather = document.querySelector("#weather");
 const weatherDesc = document.querySelector("#weather-desc");
+const sunrise = document.querySelector("#sunrise");
+const sunset = document.querySelector("#sunset");
 
 button.addEventListener("click", () => {
   let inputCityName = document.querySelector("#city-name").value;
@@ -27,7 +29,7 @@ function dataFetching(API_URL) {
         temp: weatherRaw.main.temp,
         humidity: weatherRaw.main.humidity,
         sunrise: weatherRaw.sys.sunrise,
-        sunshine: weatherRaw.sys.sunset,
+        sunset: weatherRaw.sys.sunset,
         weather: weatherRaw.weather[0].main,
         weatherDesc: weatherRaw.weather[0].description,
       };
@@ -42,6 +44,8 @@ function exportData(city) {
   humidity.innerText = city.humidity;
   weather.innerText = city.weather;
   weatherDesc.innerText = city.weatherDesc;
+  sunrise.innerText = unixTimestamp(city.sunrise);
+  sunset.innerText = unixTimestamp(city.sunset);
 
   console.log(city);
   createIcon();
@@ -51,4 +55,12 @@ function createIcon() {
   let icon = document.createElement("img");
   icon.src = "icons/cloud.svg";
   weather.appendChild(icon);
+}
+
+function unixTimestamp(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let formattedTime = hours + ":" + minutes;
+  return formattedTime;
 }
