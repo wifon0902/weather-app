@@ -61,6 +61,7 @@ function exportData(city) {
 }
 
 function createIcon(city) {
+  weather.innerHTML = "";
   let icon = document.createElement("img");
   let weatherName = city.weather;
   if (weatherName === "Haze") {
