@@ -104,11 +104,39 @@ body {
   text-transform: uppercase;
   font-size: 2.2vmin;
   font-weight: 500;
-  margin-top: -10vmin;
 }
 
 #timestamp {
   font-weight: 300;
   color: rgb(255, 255, 255, 0.7);
-  margin-top: -2vmin;
+}
+
+.weather-details {
+  margin: 7vmin 3vmin;
+}
+
+.suntime {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.suntime-container {
+  display: flex;
+  align-items: center;
+}
+
+.suntime-container > div {
+  display: flex;
+  flex-direction: column;
+}
+
+.sun-icons {
+  height: 3.8vmin;
+  margin-right: 1.5vmin;
+}
+
+.sun-label {
+  font-weight: 300;
+  color: rgb(255, 255, 255, 0.7);
 }

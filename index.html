@@ -28,15 +28,34 @@
         <span id="city">Lodz</span>
       </div>
       <div class="weather-info">
-        <p id="weather"></p>
-        <p id="temp"></p>
-        <p id="weather-desc"></p>
-        <p id="timestamp"></p>
+        <span id="weather"></span>
+        <span id="temp"></span>
+        <span id="weather-desc"></span>
+        <span id="timestamp"></span>
       </div>
-      <p id="sunrise"></p>
-      <p id="sunset"></p>
-      <p id="humidity"></p>
-      <p id="wind-speed"></p>
+
+      <div class="weather-details">
+        <div class="suntime">
+          <div class="suntime-container">
+            <img class="sun-icons" src="icons/sunrise.png" alt="sunrise-icon" />
+            <div>
+              <span class="sun-label">Sunrise</span>
+              <span id="sunrise"></span>
+            </div>
+          </div>
+
+          <div class="suntime-container">
+            <img class="sun-icons" src="icons/sunset.png" alt="sunset-icon" />
+            <div>
+              <span class="sun-label">Sunset</span>
+              <span id="sunset"></span>
+            </div>
+          </div>
+        </div>
+
+        <span id="humidity"></span>
+        <span id="wind-speed"></span>
+      </div>
     </div>
 
     <script type="module" src="app.js"></script>
