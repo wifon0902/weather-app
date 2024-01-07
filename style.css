@@ -136,17 +136,32 @@ body {
   margin-right: 1.5vmin;
 }
 
-.sun-label {
+.details-label {
   font-weight: 300;
   color: rgb(255, 255, 255, 0.7);
+  font-size: 1.7vmin;
 }
 
 .divider {
   border: 1px solid rgba(109, 149, 209, 0.1);
   border-radius: 20vmin;
+  margin: 1vmin 0;
 }
 
-.suntime-span {
+.details-span {
   font-size: 2.2vmin;
   font-weight: 500;
+}
+
+.more-details,
+.wind-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.more-details > div,
+.wind-details > div {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
