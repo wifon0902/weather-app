@@ -9,7 +9,9 @@ const country = document.querySelector("#country");
 const cityName = document.querySelector("#city");
 const temp = document.querySelector("#temp");
 const humidity = document.querySelector("#humidity");
+const pressure = document.querySelector("#pressure");
 const windSpeed = document.querySelector("#wind-speed");
+const windDeg = document.querySelector("#wind-deg");
 const weather = document.querySelector("#weather");
 const weatherDesc = document.querySelector("#weather-desc");
 const sunrise = document.querySelector("#sunrise");
@@ -35,7 +37,9 @@ function dataFetching(API_URL) {
         country: weatherRaw.sys.country,
         temp: weatherRaw.main.temp,
         humidity: weatherRaw.main.humidity,
+        pressure: weatherRaw.main.pressure,
         windSpeed: weatherRaw.wind.speed,
+        windDeg: weatherRaw.wind.speed,
         sunrise: weatherRaw.sys.sunrise,
         sunset: weatherRaw.sys.sunset,
         weather: weatherRaw.weather[0].main,
@@ -75,8 +79,10 @@ function exportData(city) {
   country.innerText = regionNames.of(city.country);
   temp.innerText = Math.round(city.temp);
   humidity.innerText = city.humidity + "%";
+  pressure.innerText = city.pressure + " hPa";
   let windSpeedConversion = (city.windSpeed / 1000) * 3600;
   windSpeed.innerText = Math.round(windSpeedConversion) + " km/h";
+  windDeg.innerText = Math.round(windSpeedConversion) + "°";
   weatherDesc.innerText = city.weatherDesc;
   sunrise.innerText = sunTimestamp(city.sunrise, city.timezone);
   sunset.innerText = sunTimestamp(city.sunset, city.timezone);
