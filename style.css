@@ -14,7 +14,7 @@ body {
 .app-container {
   aspect-ratio: 8 / 17;
   width: 40vmin;
-  background-image: url("gradient.png");
+  background-image: url("gradients/mist.png");
   background-size: cover;
   border-radius: 4vmin;
   padding: 1.8vmin;

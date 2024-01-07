@@ -103,4 +103,7 @@ function createIcon(city) {
   icon.classList.add("weatherIcon");
   icon.src = `icons/${weatherName}.png`;
   weather.appendChild(icon);
+
+  let background = document.querySelector(".app-container");
+  background.style.backgroundImage = `url(gradients/${weatherName}.png`;
 }
