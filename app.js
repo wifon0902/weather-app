@@ -18,6 +18,10 @@ const sunrise = document.querySelector("#sunrise");
 const sunset = document.querySelector("#sunset");
 const timestamp = document.querySelector("#timestamp");
 
+dataFetching(
+  `https://api.openweathermap.org/data/2.5/weather?q=warsaw&units=metric&appid=${API_KEY}`
+);
+
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
 });
