@@ -58,7 +58,8 @@ function exportData(city) {
 
 function createIcon() {
   let icon = document.createElement("img");
-  icon.src = "icons/cloud.svg";
+  icon.classList.add("weatherIcon");
+  icon.src = "icons/cloud.png";
   weather.appendChild(icon);
 }
 
