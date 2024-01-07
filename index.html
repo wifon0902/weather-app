@@ -3,21 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/004bb1ffb8.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <title>Weather App</title>
   </head>
   <body>
-    <input id="city-name" type="text" placeholder="Enter city name" />
-    <button id="check-button">Check weather</button>
-    <p id="country"></p>
-    <p id="city">test</p>
-    <p id="weather"></p>
-    <p id="temp"></p>
-    <p id="weather-desc"></p>
-    <p id="sunrise"></p>
-    <p id="sunset"></p>
-    <p id="humidity"></p>
-    <p id="wind-speed"></p>
+    <div class="app-container">
+      <form id="search-form">
+        <button type="submit" id="search-button">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </button>
+        <input id="search-input" type="text" placeholder="Enter city name" />
+      </form>
+      <div class="region">
+        <span id="country">Poland</span>
+        <span id="city">Lodz</span>
+      </div>
+      <p id="weather"></p>
+      <p id="temp"></p>
+      <p id="weather-desc"></p>
+      <p id="sunrise"></p>
+      <p id="sunset"></p>
+      <p id="humidity"></p>
+      <p id="wind-speed"></p>
+    </div>
 
     <script type="module" src="app.js"></script>
     <script type="module" src="config.js"></script>

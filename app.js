@@ -2,7 +2,8 @@ import { config } from "./config.js";
 import { regionNames } from "./region.js";
 
 const API_KEY = config.API_KEY;
-const button = document.querySelector("#check-button");
+const button = document.querySelector("#search-button");
+const searchForm = document.querySelector("#search-form");
 
 const country = document.querySelector("#country");
 const cityName = document.querySelector("#city");
@@ -14,8 +15,12 @@ const weatherDesc = document.querySelector("#weather-desc");
 const sunrise = document.querySelector("#sunrise");
 const sunset = document.querySelector("#sunset");
 
+searchForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+});
+
 button.addEventListener("click", () => {
-  let inputCityName = document.querySelector("#city-name").value;
+  let inputCityName = document.querySelector("#search-input").value;
   const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityName}&units=metric&appid=${API_KEY}`;
   dataFetching(API_URL);
 });
@@ -36,6 +41,7 @@ function dataFetching(API_URL) {
         weatherDesc: weatherRaw.weather[0].description,
       };
       exportData(city);
+      createIcon(city);
       console.log(weatherRaw);
     });
 }
@@ -43,30 +49,33 @@ function dataFetching(API_URL) {
 function exportData(city) {
   cityName.innerText = city.name;
   country.innerText = regionNames.of(city.country);
-  temp.innerText = Math.round(city.temp);
-  humidity.innerText = city.humidity;
+  temp.innerText = Math.round(city.temp) + "°C";
+  humidity.innerText = city.humidity + "%";
   let windSpeedConversion = (city.windSpeed / 1000) * 3600;
-  windSpeed.innerText = Math.round(windSpeedConversion);
+  windSpeed.innerText = Math.round(windSpeedConversion) + " km/h";
   weather.innerText = city.weather;
   weatherDesc.innerText = city.weatherDesc;
   sunrise.innerText = unixTimestamp(city.sunrise);
   sunset.innerText = unixTimestamp(city.sunset);
 
   console.log(city);
-  createIcon();
 }
 
-function createIcon() {
+function createIcon(city) {
   let icon = document.createElement("img");
+  let weatherName = city.weather;
+  if (weatherName === "Haze") {
+    weatherName = "mist";
+  }
   icon.classList.add("weatherIcon");
-  icon.src = "icons/cloud.png";
+  icon.src = `icons/${weatherName}.png`;
   weather.appendChild(icon);
 }
 
 function unixTimestamp(timestamp) {
   let date = new Date(timestamp * 1000);
   let hours = date.getHours();
-  let minutes = date.getMinutes();
+  let minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
   let formattedTime = hours + ":" + minutes;
   return formattedTime;
 }
