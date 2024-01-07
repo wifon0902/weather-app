@@ -1,19 +1,21 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700&display=swap");
 
 * {
-  font-family: "Poppins", sans-serif;
+  font-family: "Red Hat Display", sans-serif;
 }
 
 body {
   margin: 0;
   padding: 0;
   background-color: black;
+  color: white;
 }
 
 .app-container {
   aspect-ratio: 9 / 17.5;
   width: 40vmin;
-  background-color: rgb(90, 135, 233);
+  background-image: url("gradient.png");
+  background-size: cover;
   border-radius: 4vmin;
   padding: 1.8vmin;
 }
@@ -59,20 +61,41 @@ body {
   display: flex;
   flex-direction: column;
   margin-top: 3vmin;
+  margin-left: 1vmin;
 }
 
 #country {
   color: rgb(236, 236, 236);
-  font-size: 1.6vmin;
+  font-size: 1.8vmin;
   font-weight: 300;
+  letter-spacing: 0.15vmin;
 }
 
 #city {
   color: white;
   font-size: 3.2vmin;
   font-weight: 500;
+  letter-spacing: 0.1vmin;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .weatherIcon {
-  width: 200px;
+  width: 35vmin;
+}
+
+#temp {
+  margin-top: -2vmin;
+  color: white;
+  font-size: 10vmin;
+  font-weight: 700;
+}
+
+#temp::after {
+  content: "°C";
+  font-weight: 400;
 }

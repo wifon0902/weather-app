@@ -49,11 +49,10 @@ function dataFetching(API_URL) {
 function exportData(city) {
   cityName.innerText = city.name;
   country.innerText = regionNames.of(city.country);
-  temp.innerText = Math.round(city.temp) + "°C";
+  temp.innerText = Math.round(city.temp);
   humidity.innerText = city.humidity + "%";
   let windSpeedConversion = (city.windSpeed / 1000) * 3600;
   windSpeed.innerText = Math.round(windSpeedConversion) + " km/h";
-  weather.innerText = city.weather;
   weatherDesc.innerText = city.weatherDesc;
   sunrise.innerText = unixTimestamp(city.sunrise);
   sunset.innerText = unixTimestamp(city.sunset);
