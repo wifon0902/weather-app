@@ -12,7 +12,7 @@ body {
 }
 
 .app-container {
-  aspect-ratio: 9 / 17.5;
+  aspect-ratio: 8 / 17;
   width: 40vmin;
   background-image: url("gradient.png");
   background-size: cover;
@@ -65,8 +65,8 @@ body {
 }
 
 #country {
-  color: rgb(236, 236, 236);
-  font-size: 1.5vmin;
+  color: rgb(255, 255, 255, 0.7);
+  font-size: 1.6vmin;
   font-weight: 300;
   letter-spacing: 0.15vmin;
 }
@@ -102,7 +102,13 @@ body {
 
 #weather-desc {
   text-transform: uppercase;
-  font-size: 2vmin;
+  font-size: 2.2vmin;
   font-weight: 500;
   margin-top: -10vmin;
+}
+
+#timestamp {
+  font-weight: 300;
+  color: rgb(255, 255, 255, 0.7);
+  margin-top: -2vmin;
 }

@@ -14,6 +14,7 @@ const weather = document.querySelector("#weather");
 const weatherDesc = document.querySelector("#weather-desc");
 const sunrise = document.querySelector("#sunrise");
 const sunset = document.querySelector("#sunset");
+const timestamp = document.querySelector("#timestamp");
 
 searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -39,11 +40,34 @@ function dataFetching(API_URL) {
         sunset: weatherRaw.sys.sunset,
         weather: weatherRaw.weather[0].main,
         weatherDesc: weatherRaw.weather[0].description,
+        timestamp: weatherRaw.dt,
+        timezone: weatherRaw.timezone,
       };
+
       exportData(city);
       createIcon(city);
       console.log(weatherRaw);
     });
+}
+
+function currentTime(city) {
+  let dateTime = new Date(
+    city.timestamp * 1000 + (city.timezone - 3600) * 1000
+  );
+  let hour = dateTime.getHours();
+  let minutes = (dateTime.getMinutes() < 10 ? "0" : "") + dateTime.getMinutes();
+  let weekday = dateTime.toLocaleString("en-us", { weekday: "long" });
+  let date = dateTime.getDate();
+
+  return `${weekday} ${date} • ${hour}:${minutes}`;
+}
+
+function sunTimestamp(timestamp, timezone) {
+  let date = new Date(timestamp * 1000 + (timezone - 3600) * 1000);
+  let hours = date.getHours();
+  let minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
+  let formattedTime = hours + ":" + minutes;
+  return formattedTime;
 }
 
 function exportData(city) {
@@ -54,8 +78,9 @@ function exportData(city) {
   let windSpeedConversion = (city.windSpeed / 1000) * 3600;
   windSpeed.innerText = Math.round(windSpeedConversion) + " km/h";
   weatherDesc.innerText = city.weatherDesc;
-  sunrise.innerText = unixTimestamp(city.sunrise);
-  sunset.innerText = unixTimestamp(city.sunset);
+  sunrise.innerText = sunTimestamp(city.sunrise, city.timezone);
+  sunset.innerText = sunTimestamp(city.sunset, city.timezone);
+  timestamp.innerText = currentTime(city);
 
   console.log(city);
 }
@@ -66,16 +91,10 @@ function createIcon(city) {
   let weatherName = city.weather;
   if (weatherName === "Haze") {
     weatherName = "mist";
+  } else if (weatherName === "Drizzle") {
+    weatherName = "rain";
   }
   icon.classList.add("weatherIcon");
   icon.src = `icons/${weatherName}.png`;
   weather.appendChild(icon);
-}
-
-function unixTimestamp(timestamp) {
-  let date = new Date(timestamp * 1000);
-  let hours = date.getHours();
-  let minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
-  let formattedTime = hours + ":" + minutes;
-  return formattedTime;
 }
