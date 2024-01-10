@@ -165,3 +165,6 @@ body {
   flex-direction: column;
   align-items: start;
 }
+
+@media screen and (max-width: 480px) {
+}
