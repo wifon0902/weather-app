@@ -16,9 +16,9 @@ body {
   margin: 0 auto;
   min-width: 420px;
   width: 20%;
-  aspect-ratio: 9 / 17;
   background-image: url("gradients/mist.png");
   background-size: cover;
+  background-position: center, center;
   border-radius: 2em;
   padding: 1.5em;
 }
@@ -163,7 +163,7 @@ body {
 @media screen and (max-width: 480px) {
   .app-container {
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     border-radius: 0;
     padding: 1.5em;
   }
