@@ -21,6 +21,7 @@
           id="search-input"
           type="text"
           placeholder="Enter city name"
+          spellcheck="false"
         />
       </form>
       <div class="region">
@@ -35,32 +36,40 @@
       </div>
 
       <div class="weather-details">
-        <div class="suntime">
-          <div class="suntime-container">
-            <img class="sun-icons" src="icons/sunrise.png" alt="sunrise-icon" />
-            <div>
-              <span class="details-label">Sunrise</span>
-              <span class="details-span" id="sunrise"></span>
+        <div class="weather-row">
+          <div class="weather-col">
+            <div class="col">
+              <img
+                class="sun-icons"
+                src="icons/sunrise.png"
+                alt="sunrise-icon"
+              />
+              <div>
+                <span class="details-label">Sunrise</span>
+                <span class="details-span" id="sunrise"></span>
+              </div>
             </div>
           </div>
 
-          <div class="suntime-container">
-            <img class="sun-icons" src="icons/sunset.png" alt="sunset-icon" />
-            <div>
-              <span class="details-label">Sunset</span>
-              <span class="details-span" id="sunset"></span>
+          <div class="weather-col">
+            <div class="col">
+              <img class="sun-icons" src="icons/sunset.png" alt="sunset-icon" />
+              <div>
+                <span class="details-label">Sunset</span>
+                <span class="details-span" id="sunset"></span>
+              </div>
             </div>
           </div>
         </div>
 
         <hr class="divider" />
 
-        <div class="more-details">
-          <div>
+        <div class="weather-row">
+          <div class="weather-col">
             <span class="details-label">Humidity</span>
             <span class="details-span" id="humidity"></span>
           </div>
-          <div>
+          <div class="weather-col">
             <span class="details-label">Pressure</span>
             <span class="details-span" id="pressure"></span>
           </div>
@@ -68,12 +77,12 @@
 
         <hr class="divider" />
 
-        <div class="wind-details">
-          <div>
+        <div class="weather-row">
+          <div class="weather-col">
             <span class="details-label">Wind speed</span>
             <span class="details-span" id="wind-speed"></span>
           </div>
-          <div>
+          <div class="weather-col">
             <span class="details-label">Wind degree</span>
             <span class="details-span" id="wind-deg"></span>
           </div>

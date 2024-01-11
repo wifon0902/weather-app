@@ -2,6 +2,7 @@
 
 * {
   font-family: "Red Hat Display", sans-serif;
+  box-sizing: border-box;
 }
 
 body {
@@ -12,19 +13,21 @@ body {
 }
 
 .app-container {
-  aspect-ratio: 8 / 17;
-  width: 40vmin;
+  margin: 0 auto;
+  min-width: 420px;
+  width: 20%;
+  aspect-ratio: 9 / 17;
   background-image: url("gradients/mist.png");
   background-size: cover;
-  border-radius: 4vmin;
-  padding: 1.8vmin;
+  border-radius: 2em;
+  padding: 1.5em;
 }
 
 #search-input {
   background-color: transparent;
-  font-size: 2.3vmin;
+  font-size: 1.5rem;
   border: none;
-  padding: 5px 10px;
+  padding: 0.2em 0.5em;
   font-weight: 400;
   caret-color: rgba(255, 255, 255, 0.8);
   color: rgba(255, 255, 255, 0.8);
@@ -41,41 +44,41 @@ body {
 #search-form {
   display: flex;
   border: 1px solid rgba(255, 255, 255, 0.8);
-  border-radius: 20px;
+  border-radius: 2em;
 }
 
 #search-button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  margin-left: 1vmin;
+  margin-left: 1em;
 }
 
 #search-button > .fa-magnifying-glass {
-  font-size: 1.7vmin;
+  font-size: 1rem;
   color: rgba(255, 255, 255, 0.8);
-  margin-top: 0.5vmin;
+  margin-top: 0.2em;
 }
 
 .region {
   display: flex;
   flex-direction: column;
-  margin-top: 3vmin;
-  margin-left: 1vmin;
+  margin-top: 1.5em;
+  margin-left: 0.5em;
 }
 
 #country {
   color: rgb(255, 255, 255, 0.7);
-  font-size: 1.6vmin;
+  font-size: 1.1rem;
   font-weight: 300;
-  letter-spacing: 0.15vmin;
+  letter-spacing: 0.1rem;
 }
 
 #city {
   color: white;
-  font-size: 3vmin;
+  font-size: 2rem;
   font-weight: 500;
-  letter-spacing: 0.1vmin;
+  letter-spacing: 0.05rem;
 }
 
 .weather-info {
@@ -85,14 +88,15 @@ body {
 }
 
 .weatherIcon {
-  height: 22vmin;
+  height: 12em;
+  margin-top: 1em;
 }
 
 #temp {
-  margin-top: -2.3vmin;
   color: white;
-  font-size: 9vmin;
+  font-size: 5.5rem;
   font-weight: 700;
+  margin-top: -0.2em;
 }
 
 #temp::after {
@@ -102,69 +106,56 @@ body {
 
 #weather-desc {
   text-transform: uppercase;
-  font-size: 2.2vmin;
+  font-size: 1.5rem;
   font-weight: 500;
 }
 
 #timestamp {
+  font-size: 1.2rem;
   font-weight: 300;
   color: rgb(255, 255, 255, 0.7);
 }
 
 .weather-details {
-  margin: 7vmin 3vmin;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2em;
+  padding: 2em;
 }
 
-.suntime {
+.weather-row {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-.suntime-container {
-  display: flex;
-  align-items: center;
-}
-
-.suntime-container > div {
+.weather-col {
+  width: 35%;
   display: flex;
   flex-direction: column;
 }
 
+.weather-col .col {
+  display: flex;
+}
+
 .sun-icons {
-  height: 3.8vmin;
-  margin-right: 1.5vmin;
+  height: 2.5em;
+  margin: 0.2em 1em 0 0;
 }
 
 .details-label {
   font-weight: 300;
   color: rgb(255, 255, 255, 0.7);
-  font-size: 1.7vmin;
+  font-size: 1rem;
+}
+
+.details-span {
+  font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .divider {
   border: 1px solid rgba(109, 149, 209, 0.1);
   border-radius: 20vmin;
-  margin: 1vmin 0;
-}
-
-.details-span {
-  font-size: 2.2vmin;
-  font-weight: 500;
-}
-
-.more-details,
-.wind-details {
-  display: flex;
-  justify-content: space-between;
-}
-
-.more-details > div,
-.wind-details > div {
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-}
-
-@media screen and (max-width: 480px) {
+  margin: 0.75em 0;
 }
