@@ -81,7 +81,7 @@ function sunTimestamp(timestamp, timezone) {
 function exportData(city) {
   cityName.innerText = city.name;
   country.innerText = regionNames.of(city.country);
-  temp.innerText = Math.round(city.temp);
+  temp.innerText = Math.round(city.temp) + "°C";
   humidity.innerText = city.humidity + "%";
   pressure.innerText = city.pressure + " hPa";
   let windSpeedConversion = (city.windSpeed / 1000) * 3600;
